@@ -1,8 +1,8 @@
-import pyowm
+from weather import Weather, Unit
 
-owm = pyowm.OWM('ed20b384594e2e2e2881ac85e38dca32')
-observation = owm.weather_at_place("Cambridge,uk")
-w = observation.get_weather()
-wind = w.get_wind()
-print(w)
-print(wind)
+weather = Weather(unit=Unit.CELSIUS)
+
+lookup = weather.lookup(560743)
+condition = lookup.condition
+
+print(condition.text)
